@@ -159,9 +159,8 @@ public abstract class BaseMonetaryConversionsSingletonSpi implements MonetaryCon
      * @see #isConversionAvailable(javax.money.convert.ConversionQuery)
      */
     public CurrencyConversion getConversion(ConversionQuery conversionQuery) {
-        return getExchangeRateProvider(conversionQuery).getCurrencyConversion(
-                Objects.requireNonNull(conversionQuery.getCurrency(), "Terminating Currency is required.")
-        );
+        Objects.requireNonNull(conversionQuery.getCurrency(), "Terminating Currency is required.");
+        return getExchangeRateProvider(conversionQuery).getCurrencyConversion(conversionQuery));
     }
 
     /**
